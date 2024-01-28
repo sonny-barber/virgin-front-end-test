@@ -1,0 +1,38 @@
+.filtersContainer{
+    display: flex;
+    flex-direction: column;
+    width: calc(25% - 20px);
+    box-shadow: 0 0 6px 0 rgba(0,0,0,.2);
+    padding: 1rem;
+
+    .filterType{
+        border-bottom: 1px solid #d9d9d9;
+        padding-bottom: 1.5rem;
+
+        &:last-of-type{
+            border-bottom: none;
+        }
+
+        label{
+            h4{
+                margin-bottom: 1rem;
+            }
+        }
+
+    }
+
+    .filterInputEl{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: .75rem;
+
+        label{
+            font-size: 1.2rem;
+        }
+    }
+
+    @media (max-width: 550px) {
+        width: calc(40% - 20px);
+    }
+}
