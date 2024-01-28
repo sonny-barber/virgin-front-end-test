@@ -1,5 +1,8 @@
 import { BookingResponse } from "@/types/booking";
 import { Rooms } from "@/utils/composition.service";
+import Cards from "./cards/cards.component";
+import styles from "./search-results.module.scss";
+
 
 async function getData(params: { [key: string]: string | string[] | undefined }) {
   const body = {
@@ -12,17 +15,14 @@ async function getData(params: { [key: string]: string | string[] | undefined })
     partyCompositions: Rooms.parseAndConvert([params.partyCompositions as string]),
   };
 
-  const res = await fetch(
-    "https://www.virginholidays.co.uk/cjs-search-api/search",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-    }
-  );
-
+  const res = await fetch("https://www.virginholidays.co.uk/cjs-search-api/search",{
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  });
+  
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
@@ -35,6 +35,7 @@ export default async function SearchResultsComponent({
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
+  
   const req = await getData(searchParams);
   const results: BookingResponse = req;
 
@@ -42,6 +43,11 @@ export default async function SearchResultsComponent({
     <section>
       <h2>{results?.holidays?.length} results found</h2>
       <p>Please fill out the filters and results list below&hellip;</p>
+
+      <div className={styles.resultsContainer}>
+        <Cards holidays={results?.holidays || []}/>
+      </div>
+
     </section>
   );
 }
