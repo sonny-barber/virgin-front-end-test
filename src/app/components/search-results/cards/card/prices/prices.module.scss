@@ -1,0 +1,21 @@
+.cardPrices{
+    background-color: #f7f7f7;
+    padding: 10px;
+
+    .pricePerPerson{
+        font-size: 2rem;
+        font-weight: 600;
+        &::after{
+            content: ' pp';
+            font-size: 1rem;
+        }
+    }
+
+    .priceTotal{
+        margin: 5px 0;
+        font-size: 1.2rem;
+        &::before{
+            content: 'Total Price: ';
+        }
+    }
+}
