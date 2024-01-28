@@ -1,0 +1,53 @@
+$vah-color-red: #e00c0b;
+$vah-color-grey-lighter: #d9d9d9;
+$vah-color-grey-lightest: #f7f7f7;
+
+.card{
+    border: solid 1px $vah-color-grey-lighter;
+    box-shadow: 0 0 6px 0 rgba(0,0,0,.2);
+    margin: 0 10px 20px 10px;
+    width: calc(33.33% - 20px);
+    text-align: center;
+    overflow: hidden;
+
+    .cardImage{
+        width: 100%;
+        height: auto;
+        transition: transform 0.5s ease;
+        overflow: hidden;
+
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+
+    .cardPrices{
+        background-color: $vah-color-grey-lightest;
+        padding: 10px;
+
+        .pricePerPerson{
+            font-size: 3rem;
+            font-weight: 600;
+            &::after{
+                content: 'pp';
+                font-size: 1.5rem;
+            }
+        }
+
+        .priceTotal{
+            margin: 5px 0;
+            &::before{
+                content: 'Total Price: ';
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    @media (max-width: 900px) {
+        width: calc(50% - 20px);
+    }
+
+    @media (max-width: 550px) {
+        width: calc(100% - 20px);
+    }
+}
