@@ -1,6 +1,6 @@
 import { BookingRequest, PartyComposition } from '@/types/booking';
 import { DateTime } from "luxon";
-import styles from './page.module.css'
+import styles from './page.module.scss'
 import { DATE_FORMATS } from '@/utils/constants';
 import Link from 'next/link';
 import { Rooms } from '@/utils/composition.service';
